@@ -59,7 +59,7 @@ internal class Spawn : Command
 
     protected override void SetKeywords()
     {
-        Keywords = new string[] { "spawn" };
+        Keywords = new string[] { "spawn", "create" };
     }
 
     Vector3 ParsePosition(string positionString, Vector3 position)
