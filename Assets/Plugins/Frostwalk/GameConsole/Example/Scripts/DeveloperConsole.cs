@@ -53,4 +53,9 @@ public class DeveloperConsole : MonoBehaviour
     {
         textLog.text += "\n" + output;
     }
+
+    public void ClearTextLog()
+    {
+        textLog.text = "";
+    }
 }
