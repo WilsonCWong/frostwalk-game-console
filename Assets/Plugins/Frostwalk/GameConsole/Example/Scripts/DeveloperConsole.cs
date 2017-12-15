@@ -28,6 +28,30 @@ public class DeveloperConsole : MonoBehaviour
         }
 	}
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow) && inputField.isFocused)
+        {
+            inputField.MoveTextStart(false);
+            CommandSnapshot snapshot = console.GetPreviousCommand();
+            inputField.text = PrintSnapshot(snapshot);
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow) && inputField.isFocused)
+        {
+            inputField.MoveTextStart(false);
+            CommandSnapshot snapshot = console.GetNextCommand();
+            inputField.text = PrintSnapshot(snapshot);
+        }
+    }
+
+    string PrintSnapshot (CommandSnapshot snap)
+    {
+        if (snap.Args == "")
+            return snap.Command;
+        else
+            return snap.Command + " " + snap.Args;
+    }
+
     public void ParseTextInput(string input)
     {
         if (inputField.text != "" && Input.GetKeyDown(KeyCode.Return))

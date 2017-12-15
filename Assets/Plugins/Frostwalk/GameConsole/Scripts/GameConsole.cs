@@ -10,10 +10,10 @@ namespace Frostwalk.GameConsole
     {
         List<Command> commandList;
         List<CommandSnapshot> commandHistory;
-
+        int commandHistoryIndex = -1;
+   
         public List<CommandSnapshot> CommandHistory { get { return commandHistory; } }
 
-        
         /// <summary>
         /// Create a game console with all the commands in Command's assembly.
         /// </summary>
@@ -59,7 +59,8 @@ namespace Frostwalk.GameConsole
             }
             else
             {
-                commandHistory.Add(new CommandSnapshot(cmd, args));
+                commandHistory.Add(new CommandSnapshot(input, ""));
+                commandHistoryIndex = commandHistory.Count;
                 return false;
             }            
         }
@@ -73,6 +74,7 @@ namespace Frostwalk.GameConsole
         private bool ParseCommand(string cmd, string args)
         {
             commandHistory.Add(new CommandSnapshot(cmd, args));
+            commandHistoryIndex = commandHistory.Count;
             foreach (Command c in commandList)
             {
                 foreach (string cmdString in c.Keywords)
@@ -99,6 +101,44 @@ namespace Frostwalk.GameConsole
                 .Select(t => (Command)Activator.CreateInstance(t));
 
             commandList = commands.ToList();
+        }
+
+        /// <summary>
+        /// Gets the previous CommandSnapshot in the command history.
+        /// </summary>
+        /// <returns>The previous snapshot in the command history or blank one if nothing is in
+        /// the history.</returns>
+        public CommandSnapshot GetPreviousCommand()
+        {
+            if (commandHistoryIndex == -1) return new CommandSnapshot();
+
+            if (commandHistoryIndex - 1 < 0)
+            {
+                return commandHistory[commandHistoryIndex];
+            }
+            else
+                return commandHistory[--commandHistoryIndex];
+        }
+
+        /// <summary>
+        /// Gets the next CommandSnapshot in the command history.
+        /// </summary>
+        /// <returns>The next snapshot in the command history or a blank one if nothing is
+        /// in the history.</returns>
+        public CommandSnapshot GetNextCommand()
+        {
+            if (commandHistoryIndex == -1) return new CommandSnapshot();
+
+            if (commandHistoryIndex + 1 == commandHistory.Count)
+            {                
+                return commandHistory[commandHistoryIndex];
+            }
+            else if (commandHistoryIndex + 1 > commandHistory.Count)
+            {
+                return commandHistory[--commandHistoryIndex];
+            }
+            else
+                return commandHistory[++commandHistoryIndex];
         }
     }
 }
