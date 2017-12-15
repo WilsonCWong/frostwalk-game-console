@@ -1,5 +1,7 @@
 # Frostwalk Game Console
 
+![Developer Console Demonstration](https://media.giphy.com/media/xT0xePUIxhXtO3r7gI/giphy.gif)
+
 Frostwalk Game Console is a Unity package by Frostwalk Studio for creating in-game and developer consoles. The framework has been developed to allow for flexible and easy command additions, and it is very easy to make extensions to the framework.
 
 The framework comes with the following features:
