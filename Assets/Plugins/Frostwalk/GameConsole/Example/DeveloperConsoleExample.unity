@@ -324,6 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputField: {fileID: 1467766824}
   textLog: {fileID: 768208621}
+  lineLimit: 150
 --- !u!1 &736027526
 GameObject:
   m_ObjectHideFlags: 0

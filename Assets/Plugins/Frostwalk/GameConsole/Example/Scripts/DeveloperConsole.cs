@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Frostwalk.GameConsole;
+using System;
+using System.Linq;
 
 public class DeveloperConsole : MonoBehaviour
 {
@@ -15,6 +15,7 @@ public class DeveloperConsole : MonoBehaviour
 
     [SerializeField] InputField inputField;
     [SerializeField] Text textLog;
+    [SerializeField] int lineLimit = 150;
 
 	void Awake () 
 	{
@@ -52,6 +53,16 @@ public class DeveloperConsole : MonoBehaviour
             return snap.Command + " " + snap.Args;
     }
 
+    int CheckOverLineLimit()
+    {
+        int numLines = textLog.text.Length - textLog.text.Replace("\n", string.Empty).Length;
+        Debug.Log(numLines);
+        if (numLines > lineLimit)
+            return numLines - lineLimit;
+        else
+            return 0;
+    }
+
     public void ParseTextInput(string input)
     {
         if (inputField.text != "" && Input.GetKeyDown(KeyCode.Return))
@@ -76,6 +87,16 @@ public class DeveloperConsole : MonoBehaviour
     public void AddToTextLog(string output)
     {
         textLog.text += "\n" + output;
+        int nLines = CheckOverLineLimit();
+        if (nLines != 0)
+        {
+            string[] lines = textLog.text
+                .Split('\n')
+                .Skip(nLines)
+                .ToArray();
+
+            textLog.text = string.Join("\n", lines);
+        } 
     }
 
     public void ClearTextLog()
