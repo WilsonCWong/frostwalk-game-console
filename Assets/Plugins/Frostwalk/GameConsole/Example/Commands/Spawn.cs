@@ -52,14 +52,25 @@ internal class Spawn : Command
                 go.transform.position = position;
                 break;
             default:
-                DeveloperConsole.Instance.AddToTextLog("GameObject " + args[0] + "was not found.");
+                DeveloperConsole.Instance.AddToTextLog("GameObject " + args[0] + " was not found.");
                 break;
         }
+    }
+
+    public override void PrintHelp()
+    {
+        DeveloperConsole.Instance.AddToTextLog(Help);
     }
 
     protected override void SetKeywords()
     {
         Keywords = new string[] { "spawn", "create" };
+    }
+
+    protected override void SetHelp()
+    {
+        Help = "The spawn or create command instantiates a GameObject.\n" +
+            "- spawn/create <i>GameObject</i> [at Vector2|Vector3]";
     }
 
     Vector3 ParsePosition(string positionString, Vector3 position)

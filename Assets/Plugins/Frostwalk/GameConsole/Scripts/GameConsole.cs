@@ -10,8 +10,9 @@ namespace Frostwalk.GameConsole
     {
         List<Command> commandList;
         List<CommandSnapshot> commandHistory;
-        int commandHistoryIndex = -1;
+        int commandHistoryIndex = -1; // Tracks position the user is at in the history log
    
+        public List<Command> CommandList { get { return commandList;  } }
         public List<CommandSnapshot> CommandHistory { get { return commandHistory; } }
 
         /// <summary>
@@ -79,9 +80,14 @@ namespace Frostwalk.GameConsole
             {
                 foreach (string cmdString in c.Keywords)
                 {
-                    if (cmdString == cmd)
+                    if (cmdString == cmd && args.Trim() != "?")
                     {
                         c.Run(args);
+                        return true;
+                    } 
+                    else if (cmdString == cmd)
+                    {
+                        c.PrintHelp();
                         return true;
                     }
                 }

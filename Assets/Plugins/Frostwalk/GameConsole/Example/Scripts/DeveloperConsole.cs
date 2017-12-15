@@ -8,13 +8,13 @@ using Frostwalk.GameConsole;
 public class DeveloperConsole : MonoBehaviour
 {
     static DeveloperConsole _instance;
+    GameConsole console;
 
     public static DeveloperConsole Instance { get { return _instance; } }
+    public GameConsole Console { get { return console; } }
 
     [SerializeField] InputField inputField;
     [SerializeField] Text textLog;
-
-    GameConsole console;
 
 	void Awake () 
 	{
