@@ -1,5 +1,8 @@
 using Frostwalk.GameConsole;
 
+/// <summary>
+/// Prints whatever arguments you provide to it on to the screen.
+/// </summary>
 internal class Echo : Command
 {
     public override void Run(string argString)

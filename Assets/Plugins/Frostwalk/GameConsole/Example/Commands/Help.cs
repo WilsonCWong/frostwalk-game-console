@@ -6,6 +6,8 @@ internal class Help : Command
     public override void Run(string argString)
     {
         string[] args = GameConsoleUtility.SplitArgsAndTrim(argString);
+
+        // We first need to make sure there is only one argument
         if (args.Length == 0)
             DeveloperConsole.Instance.AddToTextLog("help: Please provide a command.");
         else if (args.Length > 1)
@@ -13,6 +15,7 @@ internal class Help : Command
         else
         {
             List<Command> commandList = DeveloperConsole.Instance.Console.CommandList;
+            // Check whether the argument matches a keyword in the command list
             foreach (Command command in commandList)
             {
                 foreach(string keyword in command.Keywords)

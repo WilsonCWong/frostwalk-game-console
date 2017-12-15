@@ -39,6 +39,9 @@ namespace Frostwalk.GameConsole
         /// <param name="argString">Command's arguments in one contiguous string.</param>
         public abstract void Run(string argString);
 
+        /// <summary>
+        /// Prints the help information.
+        /// </summary>
         public abstract void PrintHelp();
     }
 }

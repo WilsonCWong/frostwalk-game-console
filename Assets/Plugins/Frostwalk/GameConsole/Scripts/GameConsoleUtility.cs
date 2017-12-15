@@ -23,11 +23,22 @@ namespace Frostwalk.GameConsole
                 return false;
         }
 
+        /// <summary>
+        /// Splits an argument string by spaces and returns the string array.
+        /// </summary>
+        /// <param name="args">The argument string with all the arguments.</param>
+        /// <returns>The argument string split into a string array.</returns>
         public static string[] SplitArgs(string args)
         {
             return args.Split(' ');
         }
 
+        /// <summary>
+        /// Trims the end of an argument string and then splits it by spaces and 
+        /// returns the string array.
+        /// </summary>
+        /// <param name="args">The argument string.</param>
+        /// <returns>The argument string with a trimmed end split into a string array.</returns>
         public static string[] SplitArgsAndTrim(string args)
         {
             return args.TrimEnd(' ').Split(' ');

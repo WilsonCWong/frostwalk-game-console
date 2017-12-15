@@ -1,5 +1,8 @@
 using Frostwalk.GameConsole;
 
+/// <summary>
+/// Clears the entire text log.
+/// </summary>
 internal class Clear : Command
 {
     public override void Run(string argString)

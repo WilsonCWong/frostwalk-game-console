@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Frostwalk.GameConsole
 {
+    /// <summary>
+    /// Holds a snapshot of a command that was previously entered.
+    /// </summary>
     public struct CommandSnapshot
     {
         string command;
