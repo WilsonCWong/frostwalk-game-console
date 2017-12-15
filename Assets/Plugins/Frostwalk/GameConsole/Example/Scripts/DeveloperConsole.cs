@@ -70,7 +70,6 @@ public class DeveloperConsole : MonoBehaviour
     int CheckOverLineLimit()
     {
         int numLines = textLog.text.Length - textLog.text.Replace("\n", string.Empty).Length;
-        Debug.Log(numLines);
         if (numLines > lineLimit)
             return numLines - lineLimit;
         else

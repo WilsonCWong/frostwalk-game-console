@@ -39,7 +39,8 @@ internal class Spawn : Command
                         }
                         catch 
                         {
-                            DeveloperConsole.Instance.AddToTextLog("spawn: Invalid Position.");
+                            DeveloperConsole.Instance.AddToTextLog("spawn: Invalid position. Please at least enter" +
+                                    " an x or y position.");
                             return;
                         }
                     }
@@ -89,28 +90,23 @@ internal class Spawn : Command
     /// <returns>The parsed Vector2/Vector3</returns>
     Vector3 ParsePosition(string positionString, Vector3 position)
     {
-        if (positionString.Length > 3 || positionString.Length < 1 )
-            throw new Exception();
-
-        string[] coordinateString = positionString.Split(',');
-        // Vector2
+        string[] coordinateString = positionString.Split(',');     
         if (coordinateString.Length == 2)
         {
+            // Vector2
             position.x = float.Parse(coordinateString[0]);
             position.y = float.Parse(coordinateString[1]);
         }
-        // Vector3
         else if (coordinateString.Length == 3)
         {
+            // Vector3
             position.x = float.Parse(coordinateString[0]);
             position.y = float.Parse(coordinateString[1]);
             position.z = float.Parse(coordinateString[2]);
         }
-        // Incorrect position format
         else
         {
-            DeveloperConsole.Instance.AddToTextLog("spawn: Invalid position. Please at least enter" +
-                " an x or y position.");
+            // Incorrect position format
             // Throw an exception back to the Run method to allow it to handle this
             throw new Exception();
         }

@@ -8,16 +8,12 @@ The framework comes with the following features:
 * Flexible commands. Parse the arguments however you want and control the behavior of the commands however you wish.
 * Building on that last point, commands can be activated by any number of aliases you desire (e.g. spawn and create do the same thing).
 * Utility methods to make creating new commands a cleaner and less painful.
+* Built in help syntax (accessed through ```command ?```).
 
 The package also comes with an example developer console, which has the following:
 * Basic error checking.
-* The ```create```, ```echo```, and ```spawn/create``` commands.
+* The ```help```,```create```, ```echo```, and ```spawn/create``` commands.
 * Text log display with a scrolling view.
 * Keeps previous commands in memory for quick access (with the up arrow on the keyboard).
-
-# To-do
-* Command help using ```command ?``` and ```help command```.
-* Automatic text log clearing when it gets too long.
-* Documentation.
-* Repository README.
+* Automatic text log snipping when it gets too long.
 
