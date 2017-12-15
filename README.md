@@ -22,7 +22,7 @@ The package also comes with an example developer console, which has the followin
 * Basic error checking.
 * The ```help```,```create```, ```echo```, and ```spawn/create``` commands.
 * Text log display with a scrolling view.
-* Keeps previous commands in memory for quick access (with the up arrow on the keyboard).
+* Keeps previous commands in memory for quick access (with the up and down arrows on the keyboard).
 * Automatic text log snipping when it gets too long.
 
 # How to Use
