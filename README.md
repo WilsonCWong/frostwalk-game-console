@@ -1,10 +1,14 @@
 # Frostwalk Game Console
 
-<img src="https://i.imgur.com/37KVyNe.png" title="Frostwalk Game Console Logo" style="width: 80%; margin: 0 auto;" />
+<p align="center"> 
+<img src="https://i.imgur.com/37KVyNe.png" title="Frostwalk Game Console Logo" style="width: 60%;" />
+</p>
 
 Frostwalk Game Console is a Unity package by Frostwalk Studio for creating in-game and developer consoles. The framework has been developed to allow for flexible and easy command additions, and it is very easy to make extensions to the framework.
 
-<img src="https://media.giphy.com/media/xT0xePUIxhXtO3r7gI/giphy.gif" title="Developer Console Demonstration" style="width: 60%; margin: 0 auto;" />
+<p align="center"> 
+<img src="https://media.giphy.com/media/xT0xePUIxhXtO3r7gI/giphy.gif" title="Developer Console Demonstration" style="width: 60%;" />
+</p>
 
 The framework comes with the following features:
 * Create individual consoles to allow for multiple different consoles in one project.
@@ -21,3 +25,7 @@ The package also comes with an example developer console, which has the followin
 * Keeps previous commands in memory for quick access (with the up arrow on the keyboard).
 * Automatic text log snipping when it gets too long.
 
+# How to Use
+* Download the package from the github releases.
+* You will need a class or multiple classes to manage your console(s). Look at the developer console example for an idea of how to do this.
+* You need to extend from the abstract class Command from the Frostwalk.GameConsole namespace to create your own commands. You'll need to override a couple of methods. The developer example project has a couple of commands you can look at.
